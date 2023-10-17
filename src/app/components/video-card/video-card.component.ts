@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Video} from '../../Video'
+import { VideoService } from 'src/app/services/video.service';
 
 @Component({
   selector: 'app-video-card',
@@ -7,5 +8,13 @@ import {Video} from '../../Video'
   styleUrls: ['./video-card.component.scss']
 })
 export class VideoCardComponent {
-  // video: Video[] = ;
+  videos: Video[] = [];
+
+  constructor(private videoService: VideoService) {
+
+  }
+
+  ngOnInit(): void {
+    this.videoService.getVideos().subscribe();
+  }
 }
