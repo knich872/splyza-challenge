@@ -15,6 +15,7 @@ export class VideoCardComponent {
   }
 
   ngOnInit(): void {
-    this.videoService.getVideos().subscribe();
+    this.videoService.getVideos().subscribe((videos) =>
+    (this.videos = videos));
   }
 }
